@@ -1,4 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Plaster,
+  Bebas_Neue,
+  Anton_SC,
+  Roboto_Condensed,
+} from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -8,6 +15,26 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+const plaster = Plaster({
+  weight: "400",
+  variable: "--font-plaster",
+  subsets: ["latin"],
+});
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+});
+const antonSc = Anton_SC({
+  weight: "400",
+  variable: "--font-anton-sc",
+  subsets: ["latin"],
+});
+const robotoCondensed = Roboto_Condensed({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-roboto-condensed",
   subsets: ["latin"],
 });
 
