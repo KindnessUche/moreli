@@ -61,23 +61,26 @@ export default function Overlay() {
   }, []);
 
   return (
-    <div className="absolute w-screen h-screen font-[anton_sc] font-bold text-[220px]  overflow-hidden">
+    <div className="absolute w-screen h-screen font-[anton_sc] font-bold text-[100px] md:text-[180px] lg:text-[220px] overflow-hidden">
       <div
         ref={scope}
         style={{ clipPath: "inset(50% 0 50% 0)", opacity: 0 }}
         className="flex justify-center relative top-1/2 -translate-y-1/2 leading-none scale-[]"
       >
-        <ul className="absolute top-0 left-1/2 -translate-x-1/2">
-          {logo[0].split("").map((letter, i) => (
-            <motion.li
-              className="inline-block liUp"
-              style={{ opacity: 1, y: "0%" }}
-              key={`${i}-up`}
-            >
-              {letter}
-            </motion.li>
-          ))}
-        </ul>
+        {" "}
+        <AnimatePresence>
+          <motion.ul className="absolute top-0 flex justify-center items-center">
+            {logo[0].split("").map((letter, i) => (
+              <motion.li
+                className="inline-block liUp"
+                style={{ opacity: 1, y: "0%" }}
+                key={`${i}-up`}
+              >
+                {letter}
+              </motion.li>
+            ))}
+          </motion.ul>
+        </AnimatePresence>
         <ul className="flex justify-center items-center">
           <AnimatePresence>
             {logo[0].split("").map((letter, i) =>
