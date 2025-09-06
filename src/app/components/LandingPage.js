@@ -7,10 +7,13 @@ import {
   useScroll,
 } from "framer-motion";
 import CategoryTabs from "./categoryTabs";
+import AnimatedLine from "./animatedLine";
 
 export default function LandingPage({ loading }) {
+  // const text = "OUR STORY";
   const [clickScale, setClickScale] = useState(false);
   const targetRef = useRef(null);
+  const inViewRef = useRef(null);
   const [imgSource, setImgSource] = useState(
     "https://framerusercontent.com/images/QFnOpzykCdcCKqVFHe8fS1FMQ4.png"
   );
@@ -26,6 +29,7 @@ export default function LandingPage({ loading }) {
   const imageChanger = (src) => {
     setImgSource(src);
   };
+
   return (
     <motion.div
       className={` ${loading ? "opacity-0" : "opacity-100"} bg-[#0a0a0a]`}
@@ -83,7 +87,7 @@ export default function LandingPage({ loading }) {
                 <motion.div
                   initial={{ scale: 0.8, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
+                  exit={{ scale: 0.8, opacity: 0, filter: "blur(8px)" }}
                   transition={{
                     ease: "easeOut",
                     duration: 0.3,
@@ -96,9 +100,10 @@ export default function LandingPage({ loading }) {
                       MORELI
                     </h2>
                     <p className="hidden md:block font-sans text-right font-[700] text-[18px] leading-5 max-w-60">
-                      {AnimatedText(
-                        "Models you remember. Faces you can't unsee."
-                      )}
+                      <AnimatedLine
+                        className="flex flex-wrap max-w-2xl"
+                        text="Models you remember. Faces you can't unsee."
+                      />
                     </p>
                   </div>
                   <div className="mt-6 md:mt-9 text-2xl md:text-4xl lg:text-[40px] leading-11 md:leading-13">
@@ -111,7 +116,24 @@ export default function LandingPage({ loading }) {
                           alt="home page"
                           className="rounded-full h-16 w-16 md:h-24 inline-block md:w-24 "
                         />
-                        Home Page
+                        <motion.p
+                          className="block"
+                          initial={{
+                            x: "15px",
+                            y: "35px",
+                            opacity: 0,
+                            scale: 0.8,
+                          }}
+                          whileInView={{
+                            x: "0px",
+                            y: "0px",
+                            opacity: 1,
+                            scale: 1,
+                          }}
+                          transition={{ duration: 0.6, delay: -0.1 }}
+                        >
+                          Home Page
+                        </motion.p>
                       </a>
                     </div>
                     <div className="flex gap-3 items-center border-b-1 border-b-white/25 text-left py-2 md:py-4">
@@ -123,7 +145,24 @@ export default function LandingPage({ loading }) {
                           alt="home page"
                           className="rounded-full h-16 w-16 md:h-24 inline-block md:w-24 "
                         />
-                        Models
+                        <motion.p
+                          className="block"
+                          initial={{
+                            x: "15px",
+                            y: "35px",
+                            opacity: 0,
+                            scale: 0.8,
+                          }}
+                          whileInView={{
+                            x: "0px",
+                            y: "0px",
+                            opacity: 1,
+                            scale: 1,
+                          }}
+                          transition={{ duration: 0.6, delay: 0 }}
+                        >
+                          MODELS
+                        </motion.p>
                       </a>
                     </div>
                     <div className="flex gap-3 items-center md:border-b-1 border-b-white/25 text-left py-2 md:py-4">
@@ -135,7 +174,24 @@ export default function LandingPage({ loading }) {
                           alt="home page"
                           className="rounded-full h-16 w-16 md:h-24 inline-block md:w-24"
                         />
-                        Contact Us
+                        <motion.p
+                          className="block"
+                          initial={{
+                            x: "15px",
+                            y: "35px",
+                            opacity: 0,
+                            scale: 0.8,
+                          }}
+                          whileInView={{
+                            x: "0px",
+                            y: "0px",
+                            opacity: 1,
+                            scale: 1,
+                          }}
+                          transition={{ duration: 0.6, delay: 0.1 }}
+                        >
+                          CONTACT US
+                        </motion.p>
                       </a>
                     </div>
                   </div>
@@ -145,10 +201,10 @@ export default function LandingPage({ loading }) {
                         className="hover:underline cursor-pointer"
                         initial={{ opacity: 0 }}
                         animate={{
-                          opacity: clickScale ? 1 : 0,
+                          opacity: 1,
                           transition: {
-                            duration: 0.3,
-                            delay: i == 0 ? 0.1 : i * 0.3,
+                            duration: 0.7,
+                            delay: i * 0.1 + 0.2,
                           },
                         }}
                         key={i}
@@ -169,57 +225,67 @@ export default function LandingPage({ loading }) {
       </motion.section>
       <section className="relative z-10 p-4 pb-10 bg-[var(--background)] ">
         <div>
-          <h3 className="text-3xl md:text-[43px] lg:text-[54px] leading-9 md:leading-12 lg:leading-16 font-bold tracking-tighter">
-            What we put on camera has weight. Yet faces with lived experience
+          <AnimatedLine
+            className="text-3xl md:text-[43px] lg:text-[54px] leading-9 md:leading-12 lg:leading-16 font-bold tracking-tighter"
+            text="What we put on camera has weight. Yet faces with lived experience
             are still overlooked. We exists to change that. We represent bold
             faces with white hair, albinism, and striking contrast. Not
-            trends—truth.
-          </h3>
+            trends—truth."
+          />
         </div>
         <div className="w-fit flex flex-col md:flex-row md:ml-auto gap-10 md:gap-20 my-12 lg:my-20 text-[15px] leading-6">
-          <div className="max-w-xs">
-            We’re here to redefine casting. Our models are chosen for who they
-            are, not how well they fit in.
-          </div>
-          <div className="max-w-sm">
-            Our white hair campaign casts models with presence. Real people. No
-            retouching. No sameness.
-          </div>
+          <AnimatedLine
+            className="max-w-xs"
+            text="We’re here to redefine casting. Our models are chosen for who they are, not how well they fit in."
+          />
+          <AnimatedLine
+            className="max-w-sm"
+            text="Our white hair campaign casts models with presence. Real people. No retouching. No sameness."
+          />
         </div>
       </section>
-      <section className=" bg-[#1d1d1d] px-2 md:pl-4 overflow-hidden font-sans font-bold ">
+      <section
+        ref={inViewRef}
+        className=" bg-[#1d1d1d] px-2 md:pl-4 overflow-hidden font-sans font-bold "
+      >
         <div className=" leading-[clamp(100px,26vw,500px)] text-[#242424] text-[clamp(100px,29vw,500px)] font-[bebas_neue] font-extrabold">
-          OUR STORY
+          {"OUR STORY".split("").map((letter, i) => {
+            return (
+              <motion.span
+                key={i}
+                className="relative"
+                initial={{ opacity: 0, y: "-100%" }}
+                whileInView={{ opacity: 1, y: "0%" }}
+                transition={{
+                  duration: 1,
+                  delay: (i + 1) * 0.1,
+                }}
+              >
+                {letter}
+              </motion.span>
+            );
+          })}
         </div>
         <div className="max-w-[40rem] text-2xl leading-7 px-1 flex flex-col gap-7">
-          <p>
-            It started after a casting director told us, “Too white isn’t
+          <AnimatedLine
+            text="It started after a casting director told us, “Too white isn’t
             marketable.” He meant a model with albinism. She was 6’1”, magnetic,
-            and walked like a storm. We walked out.
-          </p>
-          <p>
-            That same night, we bought a domain, scribbled “MOBELI” on a napkin,
-            and messaged every person we knew with white hair, bleached lashes,
-            or a face that had ever been called “unusual.”
-          </p>
+            and walked like a storm. We walked out."
+          />
+          <AnimatedLine text="That same night, we bought a domain, scribbled “MOBELI” on a napkin, and messaged every person we knew with white hair, bleached lashes, or a face that had ever been called “unusual.”" />
         </div>
         <div className="max-w-[40rem] ml-auto mt-14 mb-10 text-2xl leading-7 px-1 flex flex-col gap-7">
-          <p>
-            Our first shoot? In an abandoned meat locker in Queens. No heater.
-            One outlet. We painted the floor with bleach, styled models in black
-            turtlenecks, and played Björk at full volume.
-          </p>
-          <p>
-            We’re not here for balance. MOBELI exists to overcorrect. To shove
-            open the door. To make the room colder, sharper, louder—until
-            there’s no going back.
-          </p>
+          <AnimatedLine text="Our first shoot? In an abandoned meat locker in Queens. No heater. One outlet. We painted the floor with bleach, styled models in black turtlenecks, and played Björk at full volume." />
+          <AnimatedLine
+            text="We’re not here for balance. MOBELI exists to overcorrect. To shove open the door. To make the room colder, sharper, louder—until
+            there’s no going back."
+          />
         </div>
       </section>
       <section className="relative ">
         <motion.div ref={targetRef} className="overflow-clip">
           <motion.div
-            className="w-screen h-[1200px] relative"
+            className="w-screen h-[80vh] sm:h-[100vh] md:h-[1200px] relative"
             style={{ scale }}
           >
             <Image
@@ -228,7 +294,8 @@ export default function LandingPage({ loading }) {
               // height="1536"
               sizes="100vw"
               fill
-              className="w-full h-full object-cover"
+              alt="Models group photo"
+              className="w-full h-full object-fill md:object-cover "
             />
           </motion.div>
         </motion.div>
@@ -246,12 +313,20 @@ export default function LandingPage({ loading }) {
       </section>
       <section className="bg-white p-5 pb-0 text-[#0A0A0A] font-sans text-2xl leading-7 font-bold">
         <div className="flex flex-col md:flex-row">
-          <div className="mr-auto w-52 ">Real features. Raw contrast. </div>
+          <AnimatedLine
+            className="mr-auto w-52 "
+            text="Real features. Raw contrast. "
+          />
+          <div className="mr-auto w-52 "></div>
           <div className="flex gap-12 mt-8 md:mt-0">
-            <p className=" w-36 md:text-right">HOME MODELS CONTACT</p>
-            <p className=" text-right md:text-left ml-auto md:ml-0 w-36">
-              TWITTER FACEBOOK INSTAGRAM
-            </p>
+            <AnimatedLine
+              className=" w-36 md:text-right"
+              text="HOME MODELS CONTACT"
+            />
+            <AnimatedLine
+              className=" text-right md:text-left ml-auto md:ml-0 w-36"
+              text="TWITTER FACEBOOK INSTAGRAM"
+            />
           </div>
         </div>
         <div className="relative bottom-0 flex mt-20 justify-center items-center overflow-clip flex-1">
@@ -265,25 +340,3 @@ export default function LandingPage({ loading }) {
 }
 
 const links = ["INSTAGRAM", "FACEBOOK", "X (PREV.TWITTER)"];
-const AnimatedText = (sentence) => {
-  const words = sentence.split(" ");
-
-  return (
-    <div className="flex flex-wrap max-w-2xl">
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          className="mr-1"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.3,
-            delay: (i + 1) * 0.05,
-          }}
-        >
-          {word}
-        </motion.span>
-      ))}
-    </div>
-  );
-};

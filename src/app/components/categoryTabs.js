@@ -81,7 +81,7 @@ const tabs = [
     src: "https://framerusercontent.com/images/QFnOpzykCdcCKqVFHe8fS1FMQ4.png",
   },
   {
-    name: "ANIMAN",
+    name: "AMANDA",
     src: "https://framerusercontent.com/images/GxcuKsKfOfxhzY0rIdyiOwWgdg.png",
   },
   {

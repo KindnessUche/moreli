@@ -12,8 +12,8 @@ export default function Home() {
   });
   return (
     <div
-      className="relative overflow-x-hidden"
-      style={{ overflow: loading && "hidden" }}
+      className={`relative overflow-hidden ${loading && "h-screen"}`}
+      // style={{ overflow: loading && "hidden" }}
     >
       <Overlay></Overlay>
       <LandingPage loading={loading}></LandingPage>
