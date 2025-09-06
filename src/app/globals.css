@@ -31,10 +31,10 @@ body {
 }
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-gray-800;
+  @apply bg-neutral-800;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-200 rounded-lg;
+  @apply bg-neutral-400 rounded-lg;
 }

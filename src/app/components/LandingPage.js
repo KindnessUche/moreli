@@ -10,7 +10,7 @@ import CategoryTabs from "./categoryTabs";
 import AnimatedLine from "./animatedLine";
 
 export default function LandingPage({ loading }) {
-  // const text = "OUR STORY";
+  const MotionImage = motion(Image);
   const [clickScale, setClickScale] = useState(false);
   const targetRef = useRef(null);
   const inViewRef = useRef(null);
@@ -62,16 +62,24 @@ export default function LandingPage({ loading }) {
             MORELI
           </motion.h1>
 
-          <Image
+          <MotionImage
             className="absolute -top-2 w-2xl left-1/2 -translate-x-1/2 aspect-auto"
             src={imgSource}
-            exit={{ opacity: 0, transition: 2 }}
             width="1024"
             height="1536"
             alt="models picture"
             sizes="calc(100vw * 0.9993)"
             priority
+            initial={{
+              transform: clickScale ? "translateZ(0px)" : "translateZ(80px)",
+            }}
+            animate={{
+              transform: clickScale ? "translateZ(80px)" : "translateZ(0px)",
+            }}
+            transition={{ ease: "easeOut", duration: clickScale ? 0.3 : 0.7 }}
+            key={imgSource}
           />
+
           <motion.p
             className="w-56 px-1.5 md:w-60 relative top-48 md:top-0 font-extrabold tracking-normal text-[28px]  font-[roboto_condensed] leading-8"
             animate={{

@@ -62,7 +62,7 @@ export default function CategoryTabs({ onScaleChange, imageChanger }) {
 
       {/* Plus Button */}
       <button
-        className="flex items-center justify-center w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 transition cursor-pointer"
+        className="flex items-center outline-none justify-center w-8 h-8 rounded-full bg-neutral-800 hover:bg-neutral-700 transition cursor-pointer"
         onClick={() => {
           setOpen(!open);
           onScaleChange();
