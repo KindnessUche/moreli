@@ -107,12 +107,12 @@ export default function LandingPage({ loading }) {
                     <h2 className="mr-auto text-4xl md:text-5xl leading-12 md:leading-14">
                       MORELI
                     </h2>
-                    <p className="hidden md:block font-sans text-right font-[700] text-[18px] leading-5 max-w-60">
+                    <div className="hidden md:block font-sans text-right font-[700] text-[18px] leading-5 max-w-60">
                       <AnimatedLine
                         className="flex flex-wrap max-w-2xl"
                         text="Models you remember. Faces you can't unsee."
                       />
-                    </p>
+                    </div>
                   </div>
                   <div className="mt-6 md:mt-9 text-2xl md:text-4xl lg:text-[40px] leading-11 md:leading-13">
                     <div className=" py-2 md:py-4 border-b-1 border-b-white/25 text-left ">

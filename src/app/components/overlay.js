@@ -115,20 +115,3 @@ export default function Overlay() {
 }
 
 const logo = ["MORELI"];
-// const container = {
-//   hidden: { clipPath: "inset(50% 0 50% 0)", opacity: 0 },
-//   visible: {
-//     clipPath: "inset(0 0 0 0)",
-//     opacity: 1,
-//     transition: { duration: 0.3 },
-//   },
-// };
-// const wordContainer = {};
-// const item1 = {
-//   exit: { opacity: 0, y: "-150%" },
-//   visible: { opacity: 1, y: "0%" },
-// };
-// const item2 = {
-//   hidden: { opacity: 0, y: "150%" },
-//   visible: { opacity: 1, y: "0%" },
-// };
