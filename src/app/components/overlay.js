@@ -67,20 +67,17 @@ export default function Overlay() {
         style={{ clipPath: "inset(50% 0 50% 0)", opacity: 0 }}
         className="flex justify-center relative top-1/2 -translate-y-1/2 leading-none scale-[]"
       >
-        {" "}
-        <AnimatePresence>
-          <motion.ul className="absolute top-0 flex justify-center items-center">
-            {logo[0].split("").map((letter, i) => (
-              <motion.li
-                className="inline-block liUp"
-                style={{ opacity: 1, y: "0%" }}
-                key={`${i}-up`}
-              >
-                {letter}
-              </motion.li>
-            ))}
-          </motion.ul>
-        </AnimatePresence>
+        <ul className="absolute top-0 flex justify-center items-center">
+          {logo[0].split("").map((letter, i) => (
+            <motion.li
+              className="inline-block liUp"
+              style={{ opacity: 1, y: "0%" }}
+              key={`${i}-up`}
+            >
+              {letter}
+            </motion.li>
+          ))}
+        </ul>
         <ul className="flex justify-center items-center">
           <AnimatePresence>
             {logo[0].split("").map((letter, i) =>

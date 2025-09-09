@@ -10,7 +10,7 @@ import CategoryTabs from "./categoryTabs";
 import AnimatedLine from "./animatedLine";
 
 export default function LandingPage({ loading }) {
-  const MotionImage = motion(Image);
+  const MotionImage = motion.create(Image);
   const [clickScale, setClickScale] = useState(false);
   const targetRef = useRef(null);
   const inViewRef = useRef(null);
@@ -69,7 +69,7 @@ export default function LandingPage({ loading }) {
             height="1536"
             alt="models picture"
             sizes="calc(100vw * 0.9993)"
-            priority
+            priority={true}
             initial={{
               transform: clickScale ? "translateZ(0px)" : "translateZ(80px)",
             }}
@@ -77,7 +77,6 @@ export default function LandingPage({ loading }) {
               transform: clickScale ? "translateZ(80px)" : "translateZ(0px)",
             }}
             transition={{ ease: "easeOut", duration: clickScale ? 0.3 : 0.7 }}
-            key={imgSource}
           />
 
           <motion.p
@@ -121,6 +120,9 @@ export default function LandingPage({ loading }) {
                           src="https://framerusercontent.com/images/VzRTSZzi6go0t0o3x94rJO8IuY.png"
                           width="372"
                           height="376"
+                          loading="lazy"
+                          blurDataURL="https://framerusercontent.com/images/VzRTSZzi6go0t0o3x94rJO8IuY.png"
+                          placeholder="blur"
                           alt="home page"
                           className="rounded-full h-16 w-16 md:h-24 inline-block md:w-24 "
                         />
@@ -151,6 +153,9 @@ export default function LandingPage({ loading }) {
                           width="372"
                           height="376"
                           alt="home page"
+                          loading="lazy"
+                          blurDataURL="https://framerusercontent.com/images/hNatiCIKw4Wb0wNi48XM4dP58.png"
+                          placeholder="blur"
                           className="rounded-full h-16 w-16 md:h-24 inline-block md:w-24 "
                         />
                         <motion.p
@@ -180,6 +185,9 @@ export default function LandingPage({ loading }) {
                           width="372"
                           height="376"
                           alt="home page"
+                          loading="lazy"
+                          blurDataURL="https://framerusercontent.com/images/oZ7ORfx3RNm8NOavgO4vLcJIbFc.png"
+                          placeholder="blur"
                           className="rounded-full h-16 w-16 md:h-24 inline-block md:w-24"
                         />
                         <motion.p
@@ -302,6 +310,9 @@ export default function LandingPage({ loading }) {
               // height="1536"
               sizes="100vw"
               fill
+              loading="lazy"
+              blurDataURL="https://framerusercontent.com/images/5HsaORxfrYPA77bBfEJYtmI5ZIY.png"
+              placeholder="blur"
               alt="Models group photo"
               className="w-full h-full object-fill md:object-cover "
             />
