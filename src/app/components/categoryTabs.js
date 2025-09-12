@@ -33,12 +33,12 @@ export default function CategoryTabs({ onScaleChange, imageChanger }) {
 
   return (
     <div className="absolute left-1/2 -translate-x-1/2 top-[500px] md:top-auto md:bottom-16 flex items-center gap-2 bg-neutral-900 rounded-full p-3 w-fit">
-      {tabs.map((tab) => (
+      {tabs.map((tab, i) => (
         <button
           key={tab.src}
           onClick={() => {
             setActiveTab(tab);
-            imageChanger(tab.src);
+            imageChanger(i);
           }}
           className="relative px-4 py-2 rounded-full bg-neutral-800  text-black font-semibold text-sm shadow-sm transition cursor-pointer"
         >
@@ -74,7 +74,6 @@ export default function CategoryTabs({ onScaleChange, imageChanger }) {
   );
 }
 
-// const tabs = ["MORELI", "ANIMAN", "GERNIUI"];
 const tabs = [
   {
     name: "MORELI",

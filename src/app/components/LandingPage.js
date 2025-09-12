@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
@@ -14,9 +14,7 @@ export default function LandingPage({ loading }) {
   const [clickScale, setClickScale] = useState(false);
   const targetRef = useRef(null);
   const inViewRef = useRef(null);
-  const [imgSource, setImgSource] = useState(
-    "https://framerusercontent.com/images/QFnOpzykCdcCKqVFHe8fS1FMQ4.png"
-  );
+  const [imgIndex, setImgIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end end"],
@@ -26,9 +24,16 @@ export default function LandingPage({ loading }) {
   const changeScale = () => {
     setClickScale((prev) => !prev);
   };
-  const imageChanger = (src) => {
-    setImgSource(src);
+  const imageChanger = (ind) => {
+    setImgIndex(ind);
   };
+
+  useEffect(() => {
+    tabs.forEach((url) => {
+      const img = new window.Image();
+      img.src = url;
+    });
+  }, []);
 
   return (
     <motion.div
@@ -64,7 +69,7 @@ export default function LandingPage({ loading }) {
 
           <MotionImage
             className="absolute -top-2 w-2xl left-1/2 -translate-x-1/2 aspect-auto"
-            src={imgSource}
+            src={tabs[imgIndex]}
             width="1024"
             height="1536"
             alt="models picture"
@@ -359,3 +364,8 @@ export default function LandingPage({ loading }) {
 }
 
 const links = ["INSTAGRAM", "FACEBOOK", "X (PREV.TWITTER)"];
+const tabs = [
+  "https://framerusercontent.com/images/QFnOpzykCdcCKqVFHe8fS1FMQ4.png",
+  "https://framerusercontent.com/images/GxcuKsKfOfxhzY0rIdyiOwWgdg.png",
+  "https://framerusercontent.com/images/SVbDtkZjBicaeOLMg2HyVVo9Xg.png",
+];
