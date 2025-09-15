@@ -42,7 +42,7 @@ export default function LandingPage({ loading }) {
     >
       ,
       <motion.section
-        className="px-1 md:px-2 lg:px-2.5 bg-amber-300"
+        className="px-1 md:px-2 lg:px-2.5 "
         initial={{ clipPath: "inset(50% 0 50% 0)", transform: "scale(1.1)" }} // closed
         animate={{
           clipPath: loading ? "inset(50% 0 50% 0)" : "inset(0 0 0 0)", // open
