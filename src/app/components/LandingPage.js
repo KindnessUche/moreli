@@ -42,16 +42,16 @@ export default function LandingPage({ loading }) {
     >
       ,
       <motion.section
-        className="px-1 md:px-2 lg:px-2.5"
+        className="px-1 md:px-2 lg:px-2.5 bg-amber-300"
         initial={{ clipPath: "inset(50% 0 50% 0)", transform: "scale(1.1)" }} // closed
         animate={{
           clipPath: loading ? "inset(50% 0 50% 0)" : "inset(0 0 0 0)", // open
-          transform: loading ? "scale(1.1)" : "scale(1)", // open
+          transform: loading ? "scale(1.17)" : "scale(1)", // open
         }}
         transition={{
-          duration: 0.5,
+          duration: 0.6,
           delay: -0.05,
-          ease: "easeInOut",
+          ease: "easeOut",
         }}
       >
         <div className=" relative h-screen py-4 perspective-normal">
