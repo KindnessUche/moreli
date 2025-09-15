@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, memo } from "react";
 import {
   motion,
   AnimatePresence,
@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import CategoryTabs from "./categoryTabs";
 import AnimatedLine from "./animatedLine";
+import AnimatedImage from "./AnimatedImage";
 
 export default function LandingPage({ loading }) {
   const MotionImage = motion.create(Image);
@@ -57,39 +58,24 @@ export default function LandingPage({ loading }) {
           <motion.h1
             className="text-[clamp(8rem,41.4vw,40rem)] text-white overflow-clip font-[bebas_neue] font-bold tracking-wide leading-[clamp(1rem,35vw,38rem)]"
             animate={{
-              transform: clickScale ? "translateZ(-30px)" : "translateZ(0px)",
+              transform: clickScale ? "translateZ(-40px)" : "translateZ(0px)",
             }}
             transition={{
-              ease: "easeOut",
-              duration: 0.3,
+              ease: [0.25, 0.46, 0.45, 0.94],
+              duration: 0.8,
             }}
           >
             MORELI
           </motion.h1>
 
-          <MotionImage
-            className="absolute -top-2 w-2xl left-1/2 -translate-x-1/2 aspect-auto"
-            src={tabs[imgIndex]}
-            width="1024"
-            height="1536"
-            alt="models picture"
-            sizes="calc(100vw * 0.9993)"
-            priority={true}
-            initial={{
-              transform: clickScale ? "translateZ(0px)" : "translateZ(80px)",
-            }}
-            animate={{
-              transform: clickScale ? "translateZ(80px)" : "translateZ(0px)",
-            }}
-            transition={{ ease: "easeOut", duration: clickScale ? 0.3 : 0.7 }}
-          />
+          <AnimatedImage src={tabs[imgIndex]} />
 
           <motion.p
             className="w-56 px-1.5 md:w-60 relative top-48 md:top-0 font-extrabold tracking-normal text-[28px]  font-[roboto_condensed] leading-8"
             animate={{
-              transform: clickScale ? "translateZ(-30px)" : "translateZ(0px)",
+              transform: clickScale ? "translateZ(-40px)" : "translateZ(0px)",
             }}
-            transition={{ ease: "easeOut", duration: 0.3 }}
+            transition={{ ease: [0.25, 0.46, 0.45, 0.94], duration: 0.8 }}
           >
             Models you remember. Faces you can't unsee.
           </motion.p>
@@ -101,8 +87,8 @@ export default function LandingPage({ loading }) {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.8, opacity: 0, filter: "blur(8px)" }}
                   transition={{
-                    ease: "easeOut",
-                    duration: 0.3,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                    duration: 0.4,
                   }}
                   className="absolute top-36 sm:top-56 md:top-0 w-xs sm:w-sm md:w-2xl rounded-xl md:rounded-b-2xl p-2 md:p-4 px-2 md:px-8 font-[bebas_neue] 
                        bg-black/20 backdrop-blur-xl md:shadow-xl border border-white/20 origin-bottom"
