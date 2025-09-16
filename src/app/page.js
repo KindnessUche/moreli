@@ -7,7 +7,7 @@ import LandingPage from "./components/LandingPage";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    const loadTime = setTimeout(() => setLoading(false), 3900);
+    const loadTime = setTimeout(() => setLoading(false), 3800);
     return () => clearTimeout(loadTime);
   });
   return (
