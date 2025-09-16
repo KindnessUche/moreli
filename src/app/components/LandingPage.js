@@ -37,9 +37,7 @@ export default function LandingPage({ loading }) {
   }, []);
 
   return (
-    <motion.div
-      className={` ${loading ? "opacity-0" : "opacity-100"} bg-[#0a0a0a]`}
-    >
+    <motion.div className={` bg-[#0a0a0a]`}>
       ,
       <motion.section
         className="px-1 md:px-2 lg:px-2.5 "
